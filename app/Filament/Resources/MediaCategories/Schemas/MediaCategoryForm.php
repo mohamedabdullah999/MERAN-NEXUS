@@ -11,11 +11,16 @@ class MediaCategoryForm
     {
         return $schema
             ->components([
-                TextInput::make('name')
-                    ->label('Category Name')
+                TextInput::make('name_en')
+                    ->label('Category Name (English)')
                     ->required()
                     ->maxLength(255)
-                    ->unique(ignoreRecord: true)
+                    ->columnSpanFull(),
+
+                TextInput::make('name_ar')
+                    ->label('Category Name (Arabic)')
+                    ->required()
+                    ->maxLength(255)
                     ->columnSpanFull(),
             ]);
     }

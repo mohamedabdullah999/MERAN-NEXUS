@@ -13,41 +13,72 @@ class SettingForm
     public static function configure(Schema $schema): Schema
     {
         return $schema->components([
-            TextInput::make('site_name')
+            TextInput::make('site_name_en')
+                ->label('Site Name (English)')
                 ->required()
                 ->maxLength(255)
                 ->columnSpanFull(),
 
-            TextInput::make('hero_title')
-                ->label('Hero Section Title')
+            TextInput::make('site_name_ar')
+                ->label('Site Name (Arabic)')
                 ->required()
-                ->maxLength(255),
+                ->maxLength(255)
+                ->columnSpanFull(),
 
-            Textarea::make('hero_brief')
-                ->label('Hero Section Brief')
+            TextInput::make('hero_title_en')
+                ->label('Hero Title (English)')
+                ->required()
+                ->maxLength(255)
+                ->columnSpanFull(),
+
+            TextInput::make('hero_title_ar')
+                ->label('Hero Title (Arabic)')
+                ->required()
+                ->maxLength(255)
+                ->columnSpanFull(),
+
+            Textarea::make('hero_brief_en')
+                ->label('Hero Brief (English)')
                 ->required()
                 ->rows(3)
+                ->columnSpanFull(),
+
+            Textarea::make('hero_brief_ar')
+                ->label('Hero Brief (Arabic)')
+                ->required()
+                ->rows(3)
+                ->columnSpanFull(),
+
+            TextInput::make('contact_email')
+                ->label('Contact Email')
+                ->email()
+                ->required()
+                ->maxLength(255)
+                ->columnSpanFull(),
+
+            TextInput::make('contact_phone')
+                ->label('Contact Phone')
+                ->tel()
+                ->required()
+                ->maxLength(255)
                 ->columnSpanFull(),
 
             FileUpload::make('hero_image')
                 ->image()
                 ->directory('settings')
-                ->required(),
+                ->required()
+                ->columnSpanFull(),
 
             FileUpload::make('footer_logo')
                 ->image()
                 ->directory('settings')
-                ->required(),
+                ->required()
+                ->columnSpanFull(),
 
             Repeater::make('social_links')
                 ->schema([
-                    TextInput::make('platform')
-                        ->label('Platform Name (e.g., LinkedIn, Twitter)')
-                        ->required(),
-                    TextInput::make('url')
-                        ->label('Profile URL')
-                        ->url()
-                        ->required(),
+                    TextInput::make('platform')->label('Platform Name (e.g., LinkedIn)')->required(),
+                    TextInput::make('url')->label('Profile URL')->url()->required(),
                 ])
                 ->columns(2)
                 ->columnSpanFull()

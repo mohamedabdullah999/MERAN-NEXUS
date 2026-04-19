@@ -6,15 +6,14 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->longText('description');
+            $table->string('title_en');
+            $table->string('title_ar');
+            $table->longText('description_en');
+            $table->longText('description_ar');
             $table->enum('media_type', ['video', 'image', 'link']);
             $table->string('file_path')->nullable();
             $table->string('cover_image')->nullable();
@@ -24,9 +23,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('articles');

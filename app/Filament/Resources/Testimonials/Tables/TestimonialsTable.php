@@ -16,9 +16,10 @@ class TestimonialsTable
         return $table
             ->columns([
                 ImageColumn::make('image_path')->label('Avatar')->circular(),
-                TextColumn::make('name')->searchable()->weight('bold'),
-                TextColumn::make('description')->limit(50),
+                TextColumn::make('name_en')->label('Client Name (English)')->searchable()->weight('bold'),
+                TextColumn::make('description_en')->label('Review (English)')->limit(50),
                 TextColumn::make('reference_link')
+                    ->label('Reference Link')
                     ->url(fn ($record) => $record->reference_link)
                     ->openUrlInNewTab()
                     ->limit(20),

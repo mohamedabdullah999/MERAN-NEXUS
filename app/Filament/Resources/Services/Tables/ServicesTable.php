@@ -19,8 +19,8 @@ class ServicesTable
                 ImageColumn::make('image_path')
                     ->label('Image')
                     ->circular(),
-                TextColumn::make('name')
-                    ->label('Service Name')
+                TextColumn::make('name_en')
+                    ->label('Service Name (English)')
                     ->searchable()
                     ->sortable(),
 

@@ -15,8 +15,8 @@ class ImpactsTable
     {
         return $table
             ->columns([
-                TextColumn::make('value')->weight('bold')->sortable(),
-                TextColumn::make('label')->searchable(),
+                TextColumn::make('value_en')->label('Value (EN)')->weight('bold')->sortable(),
+                TextColumn::make('label_en')->label('Label (EN)')->searchable(),
                 ToggleColumn::make('show_on_home'),
             ])
             ->filters([

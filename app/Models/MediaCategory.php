@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class MediaCategory extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = ['name_en', 'name_ar'];
 
     public function media()
     {

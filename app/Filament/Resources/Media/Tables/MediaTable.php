@@ -21,12 +21,13 @@ class MediaTable
                     ->defaultImageUrl(fn ($record) => $record->type === 'image' ? asset('storage/'.$record->file_path) : null)
                     ->circular(),
 
-                TextColumn::make('title')
+                TextColumn::make('title_en')
+                    ->label('Title (EN)')
                     ->searchable()
                     ->sortable()
                     ->limit(30),
 
-                TextColumn::make('category.name')
+                TextColumn::make('category.name_en')
                     ->label('Category')
                     ->sortable()
                     ->badge()

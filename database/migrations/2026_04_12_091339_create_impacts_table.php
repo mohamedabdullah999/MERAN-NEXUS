@@ -6,23 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('impacts', function (Blueprint $table) {
             $table->id();
-            $table->string('value');
-            $table->string('label');
+            $table->string('value_en');
+            $table->string('value_ar');
+            $table->string('label_en');
+            $table->string('label_ar');
             $table->boolean('show_on_home')->default(false);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('impacts');

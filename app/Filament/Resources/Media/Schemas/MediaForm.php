@@ -15,18 +15,25 @@ class MediaForm
     {
         return $schema
             ->components([
-                TextInput::make('title')
-                    ->label('Media Title')
+                TextInput::make('title_en')
+                    ->label('Media Title (English)')
+                    ->required()
+                    ->maxLength(255)
+                    ->columnSpanFull(),
+
+                TextInput::make('title_ar')
+                    ->label('Media Title (Arabic)')
                     ->required()
                     ->maxLength(255)
                     ->columnSpanFull(),
 
                 Select::make('category_id')
-                    ->relationship('category', 'name')
+                    ->relationship('category', 'name_en')
                     ->label('Category')
                     ->searchable()
                     ->preload()
-                    ->required(),
+                    ->required()
+                    ->columnSpanFull(),
 
                 Select::make('type')
                     ->label('Media Type')
@@ -36,7 +43,8 @@ class MediaForm
                         'link' => 'External Link (YouTube, etc.)',
                     ])
                     ->required()
-                    ->live(),
+                    ->live()
+                    ->columnSpanFull(),
 
                 FileUpload::make('file_path')
                     ->label(fn (Get $get) => $get('type') === 'video' ? 'Upload Video File' : 'Upload Image File')

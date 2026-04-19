@@ -8,7 +8,8 @@ class Media extends Model
 {
     protected $fillable = [
         'category_id',
-        'title',
+        'title_en',
+        'title_ar',
         'type',
         'file_path',
         'cover_image',

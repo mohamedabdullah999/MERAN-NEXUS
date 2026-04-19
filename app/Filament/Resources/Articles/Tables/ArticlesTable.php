@@ -14,7 +14,8 @@ class ArticlesTable
     {
         return $table
             ->columns([
-                TextColumn::make('title')
+                TextColumn::make('title_en')
+                    ->label('Title (EN)')
                     ->searchable()
                     ->sortable()
                     ->limit(50),

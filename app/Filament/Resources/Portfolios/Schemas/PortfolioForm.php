@@ -14,8 +14,13 @@ class PortfolioForm
     public static function configure(Schema $schema): Schema
     {
         return $schema->components([
-            TextInput::make('name')
-                ->label('Portfolio Name')
+            TextInput::make('name_en')
+                ->label('Portfolio Name (English)')
+                ->required()
+                ->maxLength(255),
+
+            TextInput::make('name_ar')
+                ->label('Portfolio Name (Arabic)')
                 ->required()
                 ->maxLength(255),
 
@@ -23,7 +28,8 @@ class PortfolioForm
                 ->label('Portfolio Type')
                 ->options(PortfolioType::class)
                 ->required()
-                ->searchable(),
+                ->searchable()
+                ->columnSpanFull(),
 
             FileUpload::make('image_path')
                 ->label('Project Image')
@@ -32,8 +38,13 @@ class PortfolioForm
                 ->required()
                 ->columnSpanFull(),
 
-            RichEditor::make('description')
-                ->label('Project Description')
+            RichEditor::make('description_en')
+                ->label('Project Description (English)')
+                ->required()
+                ->columnSpanFull(),
+
+            RichEditor::make('description_ar')
+                ->label('Project Description (Arabic)')
                 ->required()
                 ->columnSpanFull(),
         ]);

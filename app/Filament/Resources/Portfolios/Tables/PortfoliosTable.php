@@ -18,7 +18,7 @@ class PortfoliosTable
                     ->label('Image')
                     ->circular(),
 
-                TextColumn::make('name')
+                TextColumn::make('name_en')
                     ->label('Name')
                     ->searchable()
                     ->sortable(),

@@ -15,7 +15,7 @@ class SettingsTable
     {
         return $table
             ->columns([
-                TextColumn::make('site_name')->searchable(),
+                TextColumn::make('site_name_en')->label('Site Name (English)')->searchable(),
                 ImageColumn::make('footer_logo')->label('Logo'),
                 TextColumn::make('updated_at')->dateTime(),
             ])

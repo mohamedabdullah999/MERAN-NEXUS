@@ -12,14 +12,26 @@ class ImpactForm
     {
         return $schema
             ->components([
-                TextInput::make('value')
-                    ->label('Stat Value (e.g., 100+, 50K)')
+                TextInput::make('value_en')
+                    ->label('Stat Value (EN) (e.g., 100+)')
                     ->required()
                     ->maxLength(255),
-                TextInput::make('label')
-                    ->label('Stat Label (e.g., Happy Clients)')
+
+                TextInput::make('value_ar')
+                    ->label('Stat Value (AR) (e.g., +١٠٠)')
                     ->required()
                     ->maxLength(255),
+
+                TextInput::make('label_en')
+                    ->label('Stat Label (EN) (e.g., Happy Clients)')
+                    ->required()
+                    ->maxLength(255),
+
+                TextInput::make('label_ar')
+                    ->label('Stat Label (AR) (e.g., عملاء سعداء)')
+                    ->required()
+                    ->maxLength(255),
+
                 Toggle::make('show_on_home')
                     ->label('Show on Home Page')
                     ->default(true),

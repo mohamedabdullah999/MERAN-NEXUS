@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     protected $fillable = [
-        'name',
-        'description',
+        'name_en',
+        'name_ar',
+        'description_en',
+        'description_ar',
         'image_path',
         'is_top',
     ];
