@@ -15,10 +15,9 @@ class MediaCategoriesTable
     {
         return $table
             ->columns([
-                TextColumn::make('name')
-                    ->label('Category Name')
-                    ->searchable()
-                    ->sortable(),
+                TextColumn::make('name_en')
+                    ->label('Category Name (EN)')
+                    ->searchable()->sortable(),
 
                 TextColumn::make('media_count')
                     ->counts('media')

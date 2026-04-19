@@ -16,14 +16,23 @@ class ArticleForm
     {
         return $schema
             ->components([
-                TextInput::make('title')
-                    ->label('Article Title')
+                TextInput::make('title_en')
+                    ->label('Article Title (English)')
                     ->required()
-                    ->maxLength(255)
+                    ->maxLength(255),
+
+                TextInput::make('title_ar')
+                    ->label('Article Title (Arabic)')
+                    ->required()
+                    ->maxLength(255),
+
+                RichEditor::make('description_en')
+                    ->label('Article Content (English)')
+                    ->required()
                     ->columnSpanFull(),
 
-                RichEditor::make('description')
-                    ->label('Article Content / Description')
+                RichEditor::make('description_ar')
+                    ->label('Article Content (Arabic)')
                     ->required()
                     ->columnSpanFull(),
 
@@ -32,7 +41,7 @@ class ArticleForm
                     ->options([
                         'image' => 'Image Only',
                         'video' => 'Uploaded Video',
-                        'external_link' => 'External Link (YouTube, etc.)',
+                        'link' => 'External Link (YouTube, etc.)',
                     ])
                     ->required()
                     ->live()
@@ -53,8 +62,8 @@ class ArticleForm
                 TextInput::make('external_link')
                     ->label('External Link URL')
                     ->url()
-                    ->visible(fn (Get $get) => $get('media_type') === 'external_link')
-                    ->required(fn (Get $get) => $get('media_type') === 'external_link')
+                    ->visible(fn (Get $get) => $get('media_type') === 'link')
+                    ->required(fn (Get $get) => $get('media_type') === 'link')
                     ->columnSpanFull(),
 
                 FileUpload::make('cover_image')
@@ -62,8 +71,8 @@ class ArticleForm
                     ->image()
                     ->directory('articles/covers')
                     ->helperText('Required for Videos and External Links.')
-                    ->visible(fn (Get $get) => in_array($get('media_type'), ['video', 'external_link']))
-                    ->required(fn (Get $get) => in_array($get('media_type'), ['video', 'external_link']))
+                    ->visible(fn (Get $get) => in_array($get('media_type'), ['video', 'link']))
+                    ->required(fn (Get $get) => in_array($get('media_type'), ['video', 'link']))
                     ->columnSpanFull(),
 
                 Toggle::make('show_on_home')

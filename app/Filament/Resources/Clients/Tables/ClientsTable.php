@@ -17,9 +17,9 @@ class ClientsTable
         return $table
             ->columns([
                 ImageColumn::make('image_path')->label('Logo')->circular(),
-                TextColumn::make('name')->searchable(),
+                TextColumn::make('name_en')->label('Name (EN)')->searchable(),
                 ToggleColumn::make('show_on_home'),
-            ])
+                TextColumn::make('created_at')->dateTime()->sortable(), ])
             ->filters([
                 //
             ])

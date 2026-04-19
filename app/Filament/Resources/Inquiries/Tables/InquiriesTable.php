@@ -37,6 +37,13 @@ class InquiriesTable
                     ->copyable()
                     ->copyMessage('Phone number copied'),
 
+                TextColumn::make('message')
+                    ->label('Message Payload')
+                    ->limit(30)
+                    ->tooltip(fn ($record): string => $record->message)
+                    ->wrap()
+                    ->searchable(),
+
                 SelectColumn::make('status')
                     ->label('Status')
                     ->options(InquiryStatus::class)

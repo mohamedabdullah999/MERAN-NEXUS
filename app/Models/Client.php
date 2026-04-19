@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Client extends Model
 {
     protected $fillable = [
-        'name',
+        'name_en',
+        'name_ar',
         'image_path',
-        'description',
+        'description_en',
+        'description_ar',
         'show_on_home',
     ];
 
