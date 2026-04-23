@@ -5,15 +5,16 @@
         $locale = app()->getLocale();
     @endphp
 
-    <section class="hero-bg min-h-screen flex items-center pt-20">
-        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+   <section class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center -mt-24">
             <div class="text-left rtl:text-right">
-                <h1 class="text-5xl md:text-7xl font-bold mb-4 leading-tight hero-title">
+                <h1 class="text-5xl md:text-7xl font-bold mb-4 leading-tight hero-title text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 drop-shadow-[0_0_15px_rgba(168,85,247,0.4)]">
                     {{ $settings->{'hero_title_' . $locale} ?? ($locale == 'ar' ? 'نبني عوالم رقمية آمنة' : 'Building Secure Digital Worlds') }}
                 </h1>
                 <p class="text-gray-300 text-lg mb-8 tracking-wide">
                     {{ $settings->{'hero_brief_' . $locale} ?? ($locale == 'ar' ? 'الأمن السيبراني | البنية التحتية | التحول الرقمي' : 'Cybersecurity | Infrastructure | Digital Transformation') }}
                 </p>
+
                 <div class="flex gap-4">
                     <a href="{{ route('inquiry.create') }}" class="px-6 py-3 border border-purple-500/50 hover:bg-purple-900/30 hover:border-pink-400 transition-all rounded text-sm font-bold text-center group flex items-center justify-center">
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 group-hover:drop-shadow-[0_0_8px_rgba(236,72,153,0.8)]">
@@ -25,14 +26,15 @@
                     </a>
                 </div>
             </div>
-              <div class="hidden md:flex justify-center relative items-center">
-    <div class="absolute inset-0 bg-purple-500/10 blur-[100px] rounded-full z-0"></div>
 
-    @if(isset($settings->hero_image))
-        <img src="{{ Storage::url($settings->hero_image) }}" alt="Hero Image"
-             class="w-96 h-96 rounded-full object-cover border-4 border-white/10 relative z-10 drop-shadow-[0_0_30px_rgba(236,72,153,0.3)]">
-    @endif
-</div>
+            <div class="flex justify-center relative items-center mt-12 md:mt-0">
+                <div class="absolute inset-0 bg-purple-500/10 blur-[100px] rounded-full z-0 w-64 h-64 md:w-full md:h-full mx-auto"></div>
+
+                @if(isset($settings->hero_image))
+                    <img src="{{ Storage::url($settings->hero_image) }}" alt="Hero Image"
+                         class="w-64 h-64 md:w-96 md:h-96 rounded-full object-cover border-4 border-white/10 relative z-10 drop-shadow-[0_0_30px_rgba(236,72,153,0.3)]">
+                @endif
+            </div>
         </div>
     </section>
 

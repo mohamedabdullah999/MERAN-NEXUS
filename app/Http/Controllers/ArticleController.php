@@ -15,4 +15,9 @@ class ArticleController extends Controller
 
         return view('articles', compact('articles', 'settings'));
     }
+
+    public function show(Article $article): View
+    {
+        return view('articles.show', compact('article'));
+    }
 }
