@@ -65,7 +65,7 @@
 
                 <div class="flex items-center gap-3 font-mono text-gray-500 text-xs uppercase tracking-widest rtl:flex-row-reverse">
                     <span class="w-3 h-3 rounded-full bg-cyan-300 shadow-[0_0_10px_rgba(103,232,249,0.8)] animate-pulse"></span>
-                    {{ $locale == 'ar' ? 'النظام جاهز. في انتظار البيانات.' : 'SYSTEM READY. WAITING FOR INPUT.' }}
+
                 </div>
             </div>
 

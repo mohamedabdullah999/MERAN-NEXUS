@@ -26,3 +26,4 @@ Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
 Route::get('/testimonials', [TestimonialController::class, 'index'])->name('testimonials');
 Route::get('/secure-channel', [InquiryController::class, 'create'])->name('inquiry.create');
 Route::post('/secure-channel/submit', [InquiryController::class, 'store'])->name('inquiry.store');
+Route::get('/articles/{id}', [ArticleController::class, 'show'])->name('articles.show');
